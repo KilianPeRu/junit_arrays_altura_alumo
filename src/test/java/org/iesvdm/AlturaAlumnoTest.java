@@ -112,6 +112,56 @@ public class AlturaAlumnoTest {
         assertArrayEquals(array2, array);
 
     }
+    
+    @Test
+    void buscaNombreTest(){
+        String[] array = {"Paco","Juan","Ana"};
+        String nombre = "Ana";
+
+        //Do
+        AlturaAlumno.buscaNombre(array,nombre);
+        //Then
+        assertEquals(2, AlturaAlumno.buscaNombre(array, nombre));
+    }
+    @Test
+    void buscaNombreTestVacio(){
+        String[] array = {"Paco","Juan","Ana"};
+        String nombre = "";
+
+        //Do
+        AlturaAlumno.buscaNombre(array,nombre);
+        //Then
+        assertEquals(-1, AlturaAlumno.buscaNombre(array, nombre));
+    }
+    @Test
+    void buscaNombreTestVacioNull(){
+        String[] array = {"Paco","Juan","Ana"};
+        //String nombre = ""; <- NO se ha inicializado
+
+        //Do
+        //Then
+       // assertEquals(-1, AlturaAlumno.buscaNombre(array, nombre));
+    }
+    @Test
+    void mostrarTestAFallo(){
+        String[] array = {"Paco","Juan","Ana"};
+        double[] alturas = {1.9, 1.78};
+
+    }
+    @Test
+    void calculaMaximoTest(){
+    double[] array = {2.1,3.6,1.5,6.3};
+    double[] res = {3, 6.3};
+
+    assertArrayEquals(res, AlturaAlumno.calculaMaximo(array));
+    }
+    @Test
+    void calculaMaximoTestVacio() {
+        double[] array = {};
+        double[] res = {0, 0};
+
+        assertArrayEquals(res, AlturaAlumno.calculaMaximo(array));
+    }
 
 
 
